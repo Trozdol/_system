@@ -72,6 +72,8 @@ alias mute="osascript -e 'set volume output muted true'"
 alias unmute="osascript -e 'set volume 7'"
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 alias reload="exec $SHELL -l"
-alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{\"tile-type"="spacer-tile\";}' && killall Dock"
+alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
 
 alias mount-nfs="source .mount-nfs"
+alias lss='ls -lah | awk  "{print \$9, \"    \"  \$5}"| column -t | sort'
+alias pb="nc termbin.com 9999"

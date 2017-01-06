@@ -185,6 +185,14 @@ function a() {
 	fi;
 }
 
+function c() {
+	if [ $# -eq 0 ]; then
+		atom .;
+	else
+		atom "$@";
+	fi;
+}
+
 function v() {
 	if [ $# -eq 0 ]; then
 		vim .;

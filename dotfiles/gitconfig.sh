@@ -181,7 +181,7 @@
 [user]
 
 	# IN SEPARATE FILE TO KEEP OUT OF REPO
-	source ~/.gitcreds
+	# source ~/.gitcreds
 
 [http]
 
@@ -196,3 +196,6 @@
 
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[user]
+	name = Shayne Trosdahl
+	email = shayne@trozdol.com

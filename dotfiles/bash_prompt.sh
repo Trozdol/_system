@@ -98,17 +98,18 @@ fi;
 OUTIP="$(ip)"
 INTIP="$(ifconfig | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}')"
 
-PS1="\n"                                # Terminal title (set to the
-                                        # current working directory)
-PS1+="\[$bold$green$OUTIP"              # Public IP Address
-PS1+="\[$white\] "$'\xE2\x9D\xB1\]'     # Icon
-PS1+="\[$orange\] \u"                   # Username
-PS1+="\[$yellow\]@"
-PS1+="\[$orange\]$INTIP "               # Local IP Address
-PS1+="\[$white\]"$'\xE2\x9D\xB1'        # Icon
-PS1+="\[$green\] \w"                    # Working directory
-PS1+="\$(prompt_git \"$white on $cyan\") \n"
-PS1+="\[$reset$white\] \$ \[$reset\]"
+PS1="\n"                                		# Terminal title (set to the
+                                        		# current working directory)
+												#
+PS1+="\[$bold$green$OUTIP"              		# 000.000.000.000
+PS1+="\[$white\] "$'\xE2\x9D\xB1\]'     		# >
+PS1+="\[$orange\] \u"                   		# Username
+PS1+="\[$yellow\]@"								# @
+PS1+="\[$orange\]$INTIP "               		# 00.00.00.00
+PS1+="\[$white\]"$'\xE2\x9D\xB1'        		# >
+PS1+="\[$green\] \w"                    		# /Working/directory
+PS1+="\$(prompt_git \"$white on $cyan\") \n"    # New Line
+PS1+="\[$reset$white\] \$ \[$reset\]"			# $
 export PS1
 
 PS2="$white └ $reset"

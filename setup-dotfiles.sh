@@ -12,7 +12,7 @@ ln -s $original_path/dotfiles/functions.sh      ~/.functions
 ln -s $original_path/dotfiles/aliases.sh        ~/.aliases
 ln -s $original_path/dotfiles/exports.sh        ~/.exports
 ln -s $original_path/dotfiles/path.sh           ~/.path
-ln -s $original_path/dotfiles/extra.sh          ~/.inputrc
+ln -s $original_path/dotfiles/inputrc.sh        ~/.inputrc
 ln -s $original_path/dotfiles/extra.sh          ~/.extra
 
 ln -s $original_path/dotfiles/gitconfig.sh      ~/.gitconfig
