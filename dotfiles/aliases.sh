@@ -11,6 +11,7 @@ alias p="cd ~/projects"
 alias g="git"
 alias h="history"
 alias j="jobs"
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -42,6 +43,7 @@ command -v hd > /dev/null || alias hd="hexdump -C"
 command -v md5sum > /dev/null || alias md5sum="md5"
 command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
+alias clr="clear"
 alias c="tr -d '\n' | pbcopy"
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
@@ -71,9 +73,13 @@ command -v grunt > /dev/null && alias grunt="grunt --stack"
 alias mute="osascript -e 'set volume output muted true'"
 alias unmute="osascript -e 'set volume 7'"
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-alias reload="exec $SHELL -l"
+#alias reload="exec $SHELL -l"
 alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
 
 alias mount-nfs="source .mount-nfs"
 alias lss='ls -lah | awk  "{print \$9, \"    \"  \$5}"| column -t | sort'
 alias pb="nc termbin.com 9999"
+
+eval $(docker-machine env)
+
+alias plex='ssh -p2222 -L 8888:127.0.0.1:32400 root@192.95.19.156 -N'

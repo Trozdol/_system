@@ -130,6 +130,7 @@
 
 	# Detect copies as well as renames
 	renames = copies
+	tool = opendiff
 
 [help]
 
@@ -140,6 +141,7 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	tool = opendiff
 
 [push]
 
@@ -187,15 +189,19 @@
 
 	postBuffer = 2097152000
 
-[difftool "sourcetree"]
+[diff]
+    tool = opendiff
 
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+[difftool]
+    prompt = false
 
-[mergetool "sourcetree"]
+[difftool "opendiff"]
+    cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat
 
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[mergetool "opendiff"]
+	cmd = opendiff -merge \"$MERGED\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = false
+	
 [user]
 	name = Shayne Trosdahl
 	email = shayne@trozdol.com

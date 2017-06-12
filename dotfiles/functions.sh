@@ -201,6 +201,14 @@ function v() {
 	fi;
 }
 
+function s() {
+    if [ $# -eq 0 ]; then
+        /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl .;
+    else
+        /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl "$@";
+    fi;
+}
+
 function o() {
 	if [ $# -eq 0 ]; then
 		open .;
