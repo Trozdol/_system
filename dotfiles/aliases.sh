@@ -13,6 +13,7 @@ alias h="history"
 alias j="jobs"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
+
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
 else # OS X `ls`
@@ -31,7 +32,7 @@ alias sudo='sudo '
 alias week='date +%V'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ip="dig +time=2 +tries=1 +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
@@ -57,6 +58,7 @@ alias spotoff="sudo mdutil -a -i off"
 alias spoton="sudo mdutil -a -i on"
 alias plistbuddy="/usr/libexec/PlistBuddy"
 alias badge="tput bel"
+alias anyconnect="/opt/cisco/anyconnect/bin/vpn"
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
@@ -80,6 +82,6 @@ alias mount-nfs="source .mount-nfs"
 alias lss='ls -lah | awk  "{print \$9, \"    \"  \$5}"| column -t | sort'
 alias pb="nc termbin.com 9999"
 
-eval $(docker-machine env)
+# eval $(docker-machine env)
 
 alias plex='ssh -p2222 -L 8888:127.0.0.1:32400 root@192.95.19.156 -N'

@@ -96,7 +96,8 @@ else
 fi;
 
 OUTIP="$(ip)"
-INTIP="$(ifconfig | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}')"
+#INTIP="$(ifconfig | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}')"
+INTIP="$(ifconfig | ggrep -Po '(\d+|\d)\.(\d+|\d)\.(\d+|\d)\.(\d+|\d)' | egrep -v '(127.0.0.1|255$|255.255.255.0)'| tr '\n' '/' | sed 's:/: / :g')"
 
 PS1="\n"                                		# Terminal title (set to the
                                         		# current working directory)

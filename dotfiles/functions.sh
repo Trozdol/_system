@@ -1,3 +1,4 @@
+
 function calc() {
 	local result="";
 	result="$(printf "scale=10;$*\n" | bc --mathlib | tr -d '\\\n')";
@@ -186,10 +187,10 @@ function a() {
 }
 
 function c() {
-	if [ $# -eq 0 ]; then
-		atom .;
+	if [ $# -eqgd 0 ]; then
+		code .;
 	else
-		atom "$@";
+		code "$@";
 	fi;
 }
 
@@ -211,12 +212,20 @@ function s() {
 
 function o() {
 	if [ $# -eq 0 ]; then
-		open .;
+		open -g .;
 	else
-		open "$@";
+		open -g "$@";
 	fi;
 }
 
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+function t() {
+	if [ $# -eq 0 ]; then
+		open -a Terminal .;
+	else
+		open -a Terminal "$@";
+	fi;
 }

@@ -39,27 +39,4 @@ complete -W "NSGlobalDomain" defaults;
 #
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
-# Homebrew, Sencha, Node Version Mananger
-#
-export PATH=/usr/local/sbin:$PATH
-export PATH=$HOME/.bin/Sencha/Cmd:$PATH
-
-# HomeBrew Installed NVM
-
-# export NVM_DIR="$HOME/.nvm"
-# . "$(brew --prefix nvm)/nvm.sh"
-
-export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# TODO: add direct alias to node bin to
-# avoid long load time of shell
-#
-# alias NODE_6="$NVM_DIR/versions/node/v6.3.1/bin/node"
-# export PATH=$NODE_6
 export PATH="/Users/trozdol/.bin/Sencha/Cmd:$PATH"
-export PATH="/Users/trozdol/.bin/Sencha/Cmd/6.1.3.42/..:$PATH"
-export PATH="/Users/trozdol/.bin/Sencha/Cmd/6.0.1.76/..:$PATH"
