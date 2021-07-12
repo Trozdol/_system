@@ -1,0 +1,75 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[init]
+	defaultBranch = main
+
+[user]
+	name = Shayne Trosdahl
+	email = shayne@trozdol.com
+
+    [diff]
+
+	# Detect copies as well as renames
+	renames = copies
+	tool = opendiff
+
+[help]
+	# Automatically correct and execute mistyped commands
+	autocorrect = 1
+
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+	tool = opendiff
+
+[push]
+	# Use the Git 1.x.x default to avoid errors on machines with old Git
+	# installations. To use `simple` instead, add this to your `~/.extra` file:
+	# `git config --global push.default simple`. See http://git.io/mMah-w.
+	default = matching
+	# Make `git push` push relevant annotated tags when pushing branches out.
+	followTags = true
+
+# URL shorthands
+
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+	insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+
+[filter "lfs"]
+    clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+
+[http]
+	postBuffer = 2097152000
+
+[diff]
+    tool = opendiff
+
+[difftool]
+    prompt = false
+
+[difftool "opendiff"]
+    cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat
+
+[mergetool "opendiff"]
+	cmd = opendiff -merge \"$MERGED\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = false
+	
